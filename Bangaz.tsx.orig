@@ -1,6 +1,21 @@
 import React from 'react';
 
 const Bangaz: React.FC = () => {
+<<<<<<< HEAD
+  return (
+    <div className="emanator-main-ui" style={{ padding: '2em', textAlign: 'left' }}>
+      <h1 style={{ fontSize: '2.5em', marginBottom: '0.5em' }}>Bangaz Drum Machine</h1>
+      <p style={{ color: 'var(--sandstone-base)', marginBottom: '2em' }}>
+        WebMIDI Drum Machine Instrument. <br />
+        <em>Drum pattern editor coming here soon...</em>
+      </p>
+    </div>
+  );
+};
+
+export default Bangaz;
+
+=======
     return (
         <div className="bangaz-main-ui" data-testid="bangaz-root" style={{ padding: '2em' }}>
             <h1 style={{ fontSize: '2.5em', marginBottom: '0.5em' }}>Bangaz MIDI Arpeggiator Editor</h1>
@@ -13,3 +28,4 @@ const Bangaz: React.FC = () => {
 };
 
 export default Bangaz;
+>>>>>>> 4f996f6c5987ab50c7815a7046ff49b67c81431a

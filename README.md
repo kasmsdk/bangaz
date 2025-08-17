@@ -1,2 +1,3 @@
-# bangaz
-Kasm Bangaz Drum Pattern Browser and Editor Tool
+# Bangaz
+
+This is the Bangaz MIDI Arpeggiator Editor app, split for submodule use.
