@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/kasm-bangaz.iml" filepath="$PROJECT_DIR$/.idea/kasm-bangaz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/kasm-arpy.iml" filepath="$PROJECT_DIR$/.idea/kasm-arpy.iml" />
     </modules>
   </component>
 </project>

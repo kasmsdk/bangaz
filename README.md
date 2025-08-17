@@ -1,3 +1,3 @@
 # Bangaz
 
-This is the Bangaz Drum Machine app, split for submodule use.
+This is the Bangaz MIDI Arpeggiator Editor app, split for submodule use.
