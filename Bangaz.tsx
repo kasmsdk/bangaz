@@ -5,6 +5,10 @@ const Bangaz: React.FC = () => {
     return (
         <div style={{ padding: '2em' }}>
             WebMIDI Bangaz Drum Pattern Browser and Editor Tool.<br />
+            <p className="sunken-paragraph">
+                Bangaz are a collection step sequences meant to be played out General MIDI Drum kits and Ableton Drum Racks
+                Drum patterns are effectively emanators, where the current step is expected to map musically and consistently
+                over time</p>
             <div style={{ margin: '20px 0' }}>
                 <div>
                     Connect to your MIDI device... (you might need a <a href="https://help.ableton.com/hc/en-us/articles/209774225-Setting-up-a-virtual-MIDI-bus" target="_blank">virtual MIDI bus</a>)
