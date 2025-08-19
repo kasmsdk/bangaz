@@ -3,7 +3,7 @@ import MidiSelector from '../components/MidiSelector';
 
 const Bangaz: React.FC = () => {
     return (
-        <div style={{ padding: '2em' }}>
+        <div className="kasm-landing-container">
             <h1 className="main-title">Bangaz Drum Pattern Browser and Editor</h1>
             <p className="sunken-paragraph">
                 Bangaz are a collection step sequences meant to be played out General MIDI Drum kits and Ableton Drum Racks
