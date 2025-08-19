@@ -1,5 +1,6 @@
 import React from 'react';
 import MidiSelector from '../components/MidiSelector';
+import EmanatorCanvas from "../components/EmanatorCanvas.tsx";
 
 const Bangaz: React.FC = () => {
     return (
@@ -17,6 +18,13 @@ const Bangaz: React.FC = () => {
                     <MidiSelector />
                 </p>
             </div>
+
+            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', margin: '40px 0' }}>
+                <EmanatorCanvas title="Bangaz 1" />
+                <EmanatorCanvas title="Bangaz 2" />
+                <EmanatorCanvas title="Bangaz 3" />
+            </div>
+
             <div style={{ marginTop: '2rem', width: '100%', display: 'flex', justifyContent: 'center' }}>
                 <iframe
                     src="https://kasmsdk.github.io/latest/bangaz.html"
