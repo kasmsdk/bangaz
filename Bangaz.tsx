@@ -1,6 +1,6 @@
 import React from 'react';
-import MidiSelector from '../components/MidiSelector';
-import EmanatorCanvas from "../components/EmanatorCanvas.tsx";
+import MidiSelector from '../latest/MidiSelector';
+import EmanatorCanvas from "../latest/EmanatorCanvas.tsx";
 
 const Bangaz: React.FC = () => {
     return (
