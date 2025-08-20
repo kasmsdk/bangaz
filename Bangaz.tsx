@@ -47,6 +47,9 @@ const Bangaz: React.FC = () => {
                 Bangaz are a collection step sequences meant to be played out General MIDI Drum kits and Ableton Drum Racks
                 Drum patterns are effectively emanators, where the current step is expected to map musically and consistently
                 over time</p>
+
+            <LatestDemoBangaz />
+
             <p>
                 Pattern gallery/browser<br/>
                 {arpyCanvasRefs.current.map((ref, idx) => (
@@ -62,9 +65,6 @@ const Bangaz: React.FC = () => {
             <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
                 <MidiKeyboard onNoteOn={handleNoteOn} onNoteOff={handleNoteOff} />
             </div>
-
-
-            <LatestDemoBangaz />
         </div>
     );
 };
