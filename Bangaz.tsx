@@ -1,8 +1,45 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import MidiSelector from '../latest/MidiSelector';
-import EmanatorCanvas from "../latest/EmanatorCanvas.tsx";
+import EmanatorCanvas from '../latest/EmanatorCanvas';
+import type { EmanatorCanvasHandle } from '../latest/EmanatorCanvas';
+import LatestDemoBangaz from '../src/components/LatestDemoBangaz';
+import MidiKeyboard from '../src/components/MidiKeyboard';
+
+// Extend window type for inlet_5_emanator
+declare global {
+    interface Window {
+        inlet_5_emanator?: string;
+    }
+}
+
+const NUM_CANVASES = 10; // Easily changeable for arbitrary number
 
 const Bangaz: React.FC = () => {
+    // Store MIDI data in state
+    const [midiData, setMidiData] = useState<{ note: number; velocity: number; isCC: boolean } | null>(null);
+    // Array of refs for EmanatorCanvas, initialized once
+    const refsArray: React.RefObject<EmanatorCanvasHandle | null>[] = Array.from({ length: NUM_CANVASES }, () => React.createRef<EmanatorCanvasHandle>());
+    const arpyCanvasRefs = useRef(refsArray);
+    // Handler for note on
+    const handleNoteOn = (note: number, velocity: number) => {
+        window.inlet_5_emanator = '1';
+        setMidiData({ note, velocity, isCC: false });
+        arpyCanvasRefs.current.forEach(ref => {
+            if (ref.current) {
+                ref.current.callKasmFunction('update_canvas_data', { pitch: note, velocity, cc: false });
+                ref.current.postHello();
+            }
+        });
+    };
+    // Handler for note off
+    const handleNoteOff = (note: number) => {
+        setMidiData({ note, velocity: 0, isCC: false });
+        arpyCanvasRefs.current.forEach(ref => {
+            if (ref.current) {
+                ref.current.callKasmFunction('update_canvas_data', { pitch: note, velocity: 0, cc: false });
+            }
+        });
+    };
     return (
         <div className="kasm-landing-container">
             <h1 className="main-title">Bangaz Drum Pattern Browser and Editor</h1>
@@ -11,33 +48,26 @@ const Bangaz: React.FC = () => {
                 Drum patterns are effectively emanators, where the current step is expected to map musically and consistently
                 over time</p>
             <p>
-                Bangaz drum pattern browser/gallery and web based pattern edit tools are coming here soon...</p>
-            <div style={{ margin: '20px 0' }}>
-                <p>
-                    Connect to your MIDI device... (you might need a <a href="https://help.ableton.com/hc/en-us/articles/209774225-Setting-up-a-virtual-MIDI-bus" target="_blank">virtual MIDI bus</a>)
-                    <MidiSelector />
-                </p>
+                Pattern gallery/browser<br/>
+                {arpyCanvasRefs.current.map((ref, idx) => (
+                    <EmanatorCanvas
+                        key={idx}
+                        ref={ref}
+                        title={`Bangaz Canvas ${idx + 1}`}
+                        midiData={midiData}
+                    />
+                ))}
+            </p>
+            <MidiSelector/>
+            <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
+                <MidiKeyboard onNoteOn={handleNoteOn} onNoteOff={handleNoteOff} />
             </div>
 
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', margin: '40px 0' }}>
-                <EmanatorCanvas title="Bangaz 1" />
-                <EmanatorCanvas title="Bangaz 2" />
-                <EmanatorCanvas title="Bangaz 3" />
-            </div>
 
-            <div style={{ marginTop: '2rem', width: '100%', display: 'flex', justifyContent: 'center' }}>
-                <iframe
-                    src="https://kasmsdk.github.io/latest/bangaz.html"
-                    title="Kasm Demo"
-                    width="90%"
-                    height="1024"
-                    style={{ border: '2px solid #ccc', borderRadius: '12px', boxShadow: '0 2px 16px rgba(0,0,0,0.12)' }}
-                    allowFullScreen
-                />
-            </div>
-
+            <LatestDemoBangaz />
         </div>
     );
 };
+
 
 export default Bangaz;
