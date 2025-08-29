@@ -50,7 +50,7 @@ const Bangaz: React.FC = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', margin: '16px 0' }}>
                 <button
                     className="kasm-demo-btn"
-                    title="Download this LFO as Ableton Live 12.2 M4L device"
+                    title="Download Bangaz as Ableton Live 12.2 M4L device"
                     onClick={() => {
                         const link = document.createElement('a');
                         link.href = '/latest/Kasm%20Bangaz.amxd';
@@ -60,7 +60,7 @@ const Bangaz: React.FC = () => {
                         document.body.removeChild(link);
                     }}
                 >
-                    ⬇️<br/>Kasm Bangaz.amxd
+                    ⬇️<br/>Bangaz .amxd
                 </button>
             </div>
 
