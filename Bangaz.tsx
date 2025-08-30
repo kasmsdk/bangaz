@@ -44,12 +44,11 @@ const Bangaz: React.FC = () => {
         <div className="kasm-landing-container">
             <h1 className="main-title">Bangaz Drum Pattern Browser and Editor</h1>
             <p>
-                Bangaz are a collection step sequences meant to be played out General MIDI Drum kits and Ableton Drum Racks
-                Drum patterns are effectively emanators, where the current step is expected to map musically and consistently
-                over time</p>
+                Bangaz is a collection of step sequences for General MIDI Drums and Ableton Drum Racks
+                Drum patterns, a form of emanator with step/beat</p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', margin: '16px 0' }}>
                 <button
-                    className="kasm-demo-btn"
+                    className="kasm-demo-btn-download"
                     title="Download Bangaz as Ableton Live 12.2 M4L device"
                     onClick={() => {
                         const link = document.createElement('a');
